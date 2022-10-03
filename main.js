@@ -229,21 +229,115 @@ console.log("\n")
 
 // ## Extra stretch goals
 
+console.log("Extra stretch goals")
+console.log("\n")
+
 // * `crazyCase` - returns the given string with alternating lower and upper cases
 //   * Examples:
 //     * crazyCase('hello') -> 'hElLo'
 //     * crazyCase('multiple words here') -> 'mUlTiPlE WoRdS HeRe'
 //     * crazyCase('YELLING') -> 'yElLiNg'
+console.log("# 1 Extra: crazyCase")
+
+function crazyCase(crazyString){
+    let crazyOutput = "";
+    for (let i = 0; crazyString.length > i; i++){
+        if (i % 2 === 0){
+            crazyOutput += crazyString[i].toLowerCase();
+        } else {
+            crazyOutput += crazyString[i].toUpperCase();
+        }
+    }
+    return crazyOutput;
+}
+
+console.log (crazyCase("greyson"));
+console.log (crazyCase("dominic"));
+console.log (crazyCase("tyler"));
+console.log (crazyCase("brian"));
+
+console.log("\n");
+
 // * `titleCase` - returns a transformed version of the given string where every word starts with a capital letter and every non-word-starting letter is lowercased
 //   * Examples:
 //     * titleCase('return of the king') -> 'Return Of The King'
 //     * titleCase('cOde iMMerSives') -> 'Code Immersives'
+console.log("# 2 Extra: titleCase");
+
+function titleCase(stringTitleCase){
+    let finalCase = ""
+    for (let i = 0; stringTitleCase.length > i; i++){
+        if (i === 0){
+            finalCase += stringTitleCase[i].toUpperCase();
+        } else if (stringTitleCase[i] === " ") {
+            finalCase += " " + stringTitleCase[i+1].toUpperCase();
+        } else if (stringTitleCase[i-1] + stringTitleCase[i] === " " + stringTitleCase[i]) {
+            finalCase = finalCase
+        } else {
+            finalCase += stringTitleCase[i].toLowerCase();
+        }
+        
+    }
+    return finalCase;
+}
+console.log (titleCase("return of the king"));
+console.log (titleCase("cOde iMMerSives"));
+
+console.log("\n");
 // * `camelCase` - returns the given string in camel case
 //   * Examples:
 //     * camelCase('oh Hello') -> 'ohHello'
 //     * camelCase('well yeah of course') -> 'wellYeahOfCourse'
 //     * camelCase('Boy howdy') -> 'boyHowdy'
+console.log("# 3 Extra: camelCase");
+
+function camelCase(testCamel){
+    let finalCamel = "";
+    for (let i = 0; testCamel.length > i; i++){
+        if (i === 0){
+            finalCamel += testCamel[i].toLowerCase();
+        } else if (testCamel[i] === " "){
+            finalCamel += testCamel[i+1].toUpperCase();
+            i++;
+        } else {
+            finalCamel += testCamel[i].toLowerCase();
+        }
+    }
+    return finalCamel;
+}
+
+let camelTest = camelCase("a camel case example");
+let camelTest2 = camelCase("a second camel case example");
+
+// console.log(camelCase("tuTu Aututu"));
+
+console.log (camelTest);
+console.log (camelTest2);
+
+console.log("\n");
 // * `crazyCase2ReturnOfCrazyCase` - same as `crazyCase`, but does NOT count spaces as letters to upper or lower case (see examples below!)
 //   * Examples:
 //     * crazyCase2ReturnOfCrazyCase('multiple words here') -> 'mUlTiPlE wOrDs HeRe'
 //     * crazyCase2ReturnOfCrazyCase('crazy stuff') -> 'cRaZy StUfF'
+
+console.log("# 4 Extra: crazyCase2ReturnOfCrazyCase");
+
+function crazyCase2ReturnOfCrazyCase(crazy2String){
+    let crazy2Output = "";
+    for (let i = 0; crazy2String.length > i; i++){
+        if (crazy2String[i] === " ") {
+        crazy2Output = crazy2Output + " " + crazy2String[i+1];
+        i++;
+        } else if (i % 2 === 0){
+            crazy2Output += crazy2String[i].toLowerCase();
+        } else if (i % 2 === 1) {
+            crazy2Output += crazy2String[i].toUpperCase();
+        }
+    }
+    return crazy2Output;
+}
+
+console.log(crazyCase2ReturnOfCrazyCase("multiple words here"))
+console.log(crazyCase2ReturnOfCrazyCase("crazy stuff"))
+
+console.log("\n");
